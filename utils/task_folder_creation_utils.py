@@ -36,8 +36,8 @@ class TemplateCreator:
         )
 
         os.makedirs(path_to_task_folder)
-        TemplateCreator._create_files(task_id, path_to_task_folder)
-        TemplateCreator._update_readme(task_id, path_to_task_folder)
+        readme_header = TemplateCreator._create_files(task_id, path_to_task_folder)
+        TemplateCreator._update_readme(readme_header, path_to_task_folder)
 
     @staticmethod
     def _get_path_to_task_folder(task_id: str) -> str:
@@ -46,6 +46,9 @@ class TemplateCreator:
 
         Args:
             task_id: идентификатор задачи.
+
+        Returns:
+            Путь до папки с решением.
 
         Raises:
             InvalidTaskIDError, если был передан неверный task_id,
@@ -69,7 +72,7 @@ class TemplateCreator:
         return path_to_task_folder
 
     @staticmethod
-    def _create_files(task_id: str, path_to_folder: str) -> None:
+    def _create_files(task_id: str, path_to_folder: str) -> str:
         """
         Создает шаблонный файл с решением и шалонное описание решения.
 
@@ -93,6 +96,8 @@ class TemplateCreator:
 
         with open(path_to_readme, "w") as file:
             file.write(readme_content)
+
+        return readme_header
 
     @staticmethod
     def _update_readme(task_id: str, path_to_folder) -> None:

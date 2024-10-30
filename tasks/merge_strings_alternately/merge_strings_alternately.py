@@ -15,6 +15,7 @@ class Solution:
 
         return "".join(result)
 
+
 if __name__ == "__main__":
     solution = Solution()
     assert solution.mergeAlternately("abc", "pqr") == "apbqcr"

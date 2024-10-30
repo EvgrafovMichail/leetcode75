@@ -1,3 +1,7 @@
+"""
+Скрипт для создания шаблона решения.
+"""
+
 from utils.parser import parser
 from utils.task_folder_creation_utils import TemplateCreator
 
